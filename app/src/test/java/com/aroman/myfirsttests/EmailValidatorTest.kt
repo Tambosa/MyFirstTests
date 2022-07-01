@@ -31,6 +31,21 @@ class EmailValidatorTest {
     }
 
     @Test
+    fun emailValidator_InvalidEmailNoServer_ReturnFalse() {
+        assertFalse(EmailValidator.isValidEmail("geekbrains@.com"))
+    }
+
+    @Test
+    fun emailValidator_InvalidEmailNoSymbol_ReturnFalse() {
+        assertFalse(EmailValidator.isValidEmail("geekbrains.com"))
+    }
+
+    @Test
+    fun emailValidator_InvalidEmailNoDomain_ReturnFalse() {
+        assertFalse(EmailValidator.isValidEmail("geekbrains@"))
+    }
+
+    @Test
     fun emailValidator_EmptyString_ReturnsFalse() {
         assertFalse(EmailValidator.isValidEmail(""))
     }
